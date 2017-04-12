@@ -23,7 +23,7 @@ public class DbTableCreator {
             stmt.executeUpdate(sql);
 
             sql = "CREATE TABLE IF NOT EXISTS JAVA_TASK.MAINLIST "
-                    + " ID                      SERIAL PRIMARY KEY     NOT NULL, "
+                    + "( ID                      SERIAL PRIMARY KEY     NOT NULL, "
                     +" Name           VARCHAR(32)    NOT NULL, " +
                     " DATE_TIME               TIMESTAMP              NOT NULL, " +
                     " Description    VARCHAR(32), " +

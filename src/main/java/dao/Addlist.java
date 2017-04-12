@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity //сущность - тип класса, который может работать с базой данных
-@Table(name = "Addlist", schema = "myschema")
+@Table(name = "Addlist", schema = "JAVA_TASK")
 public class Addlist {
     private Long addId;
     private Mainlist mainlist;
@@ -37,16 +37,16 @@ public class Addlist {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "mainId", nullable = false)
+    @JoinColumn(name = "MAIN_ID", nullable = false)
     public Mainlist getMainlist() {
         return mainlist;
     }
 
-    public void setMainlist(Mainlist task) {
+    public void setMainlist(Mainlist mainlist) {
         this.mainlist = mainlist;
     }
 
-    @Column(name = "addName", length = 32, nullable = false, unique = false)
+    @Column(name = "ADD_NAME", length = 32, nullable = false, unique = false)
     public String getAddName() {
         return addName;
     }
@@ -55,7 +55,7 @@ public class Addlist {
         this.addName = addName;
     }
 
-    @Column(name = "addDescription", length = 32, nullable = false, unique = false)
+    @Column(name = "DESCRIPTION", length = 32, nullable = false, unique = false)
     public String getAddDescription() {
         return addDescription;
     }

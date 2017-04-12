@@ -5,10 +5,9 @@ import dal.AddlistDao;
 import dal.MainlistDao;
 import dao.Addlist;
 import dao.Mainlist;
+import org.joda.time.LocalDateTime;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import static dal.MainlistDao.*;
@@ -27,7 +26,7 @@ public class SpringHibernateMain {
 		newMainlist1.setDateTime(LocalDateTime.parse("2017-04-10T10:11:30"));
 		newMainlist1.setDescription("");
 		newMainlist1.setImportance(true);
-		newMainlist1.setPeriod(10);
+		newMainlist1.setPeriod(10l);   //дописываем l, потому что тип long
 		newMainlist1.setNotification(true);
 		MainlistDao.save(newMainlist1);
 

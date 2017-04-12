@@ -10,13 +10,13 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity //сущность - тип класса, который может работать с базой данных
-@Table(name = "Mainlist", schema = "myschema")
+@Table(name = "Mainlist", schema = "JAVA_TASK")
 public class Mainlist {
     private Long mainId;
     private Set<Addlist> addlists = null;
     private String name;
     private LocalDateTime dateTime;
-    private String descriotion;
+    private String description;
     private Boolean importance;
     private Long period;
     private Boolean notification;
@@ -25,10 +25,10 @@ public Mainlist(){
 
 }
 
-    public Mainlist(Long mainId, String name,  String descriotion, Boolean importance, Long period, Boolean notification) {
+    public Mainlist(Long mainId, String name,  String description, Boolean importance, Long period, Boolean notification) {
         this.mainId = mainId;
         this.name = name;
-        this.descriotion = descriotion;
+        this.description = description;
         this.importance = importance;
         this.period = period;
         this.notification = notification;
@@ -36,12 +36,12 @@ public Mainlist(){
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mainId", nullable = false, unique = true)
-    public long getId() {
+    @Column(name = "ID", nullable = false, unique = true)
+    public Long getMainId() {
         return mainId;
     }
-    public void setId(Long main_id) {
-        this.mainId = main_id;
+    public void setMainId(Long mainId) {
+        this.mainId = mainId;
     }
 
     @Column(name = "Name", length = 32, nullable = false, unique = false)
@@ -53,8 +53,8 @@ public Mainlist(){
     }
 
     @Column(name = "DATE_TIME", nullable = false)
-    //@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
-  @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTimeAsString")
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+  //@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTimeAsString")
     public LocalDateTime getDateTime() {
         return dateTime;
     }
@@ -66,10 +66,10 @@ public Mainlist(){
 
     @Column(name = "Description", length = 32, nullable = false, unique = false)
     public String getDescriotion() {
-        return descriotion;
+        return description;
     }
-    public void setDescription(String descriotion) {
-        this.descriotion = descriotion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Column(name = "Importance", length = 32, nullable = false, unique = false)
@@ -96,7 +96,7 @@ public Mainlist(){
         this.notification = notification;
     }
     public void setDescriotion(String descriotion) {
-        this.descriotion = descriotion;
+        this.description = descriotion;
     }
 
 
@@ -106,7 +106,7 @@ public Mainlist(){
                 .append("mainId", mainId)
                 .append("addlists", addlists)
                 .append("name", name)
-                .append("descriotion", descriotion)
+                .append("descriotion", description)
                 .append("importance", importance)
                 .append("period", period)
                 .append("notification", notification)
