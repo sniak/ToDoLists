@@ -4,10 +4,12 @@ import dal.MainlistDao;
 import dal.MainlistDao;
 import dao.Mainlist;
 import dao.Mainlist;
+//import dal.mapper.MainlistRowMapper;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -39,4 +41,22 @@ public class MainListDaoImpl implements MainlistDao {
         session.close();
         return personList;
     }
+    /*
+    //ФУНЦКИЯ ВЫВОДИТ ВСЕ ЗАДАНИЯ, КОТОРЫЕ ВАЖНЫЕ Importance = TRUE
+    public Mainlist findByImportance(Long Importance) {
+        JdbcTemplate jdbc = new JdbcTemplate(dataSource);
+
+        String sql = ""
+                + " SELECT * FROM JAVA_TASK.MAINLIST "
+                + " WHERE Importance = TRUE ";
+
+        Mainlist mainlist = (Mainlist) jdbc.queryForObject(
+                sql,
+                new Object[] { Importance },
+                new MainlistRowMapper(Mainlist.class)
+        );
+
+        return mainlist;
+    }
+    */
 }

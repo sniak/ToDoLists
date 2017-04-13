@@ -13,6 +13,35 @@ import java.util.List;
 import static dal.MainlistDao.*;
 
 public class SpringHibernateMain {
+	/*
+	private static PostPageData findSinglePublication(
+			PostDao postDao,
+			UserDao userDao,
+			Long postId
+	) {
+		Post post = postDao.findById(postId);
+
+
+		PostPageData data = new PostPageData();
+
+		LocalDateTime dateTime = post.getDateTime();
+		data.setDateTime(dateTime);
+
+		Long userId = post.getUserId();
+		User user = userDao.findById(userId);
+		String userFullName = user.getFirstName() + " " + user.getLastName();
+		data.setUser(userFullName);
+
+		String title = post.getTitle();
+		data.setTitle(title);
+
+		String publicationText = post.getPublication();
+		data.setPublication(publicationText);
+
+
+		return data;
+	}
+	*/
 
 	public static void main(String[] args) {
 
@@ -22,53 +51,44 @@ public class SpringHibernateMain {
 		AddlistDao AddlistDao = context.getBean(AddlistDao.class);
 
 		Mainlist newMainlist1 = new Mainlist();
-		newMainlist1.setName("study");
+		newMainlist1.setName("Учёба");
 		newMainlist1.setDateTime(LocalDateTime.parse("2017-04-10T10:11:30"));
-		newMainlist1.setDescription("");
+		newMainlist1.setDescription("Учимся С:");
 		newMainlist1.setImportance(true);
 		newMainlist1.setPeriod(10l);   //дописываем l, потому что тип long
 		newMainlist1.setNotification(true);
 		MainlistDao.save(newMainlist1);
 
-        Addlist newAddlist1 = new Addlist();
-        newAddlist1.setMainlist(newMainlist1);
-        newAddlist1.setAddName("diploma");
-		newAddlist1.setAddDescription("");
+		Addlist newAddlist1 = new Addlist();
+		newAddlist1.setMainlist(newMainlist1);
+		newAddlist1.setAddName("Диплом");
+		newAddlist1.setAddDescription("Пишем потихоньку");
 		AddlistDao.save(newAddlist1);
-/*
-		Addlist newAddlist12 = new Addlist();
-		newAddlist12.setMainlist(newMainlist1);
-		newAddlist12.setadd_name("homework");
-		newAddlist12.setadd_description("");
-		AddlistDao.save(newAddlist12);
 
-		Mainlist newMainlist4 = new Mainlist();
-		newMainlist4.setname("cooking");
-		//newMainlist4.setdate("06.04.2017");
-		newMainlist4.setdescription("");
-		newMainlist4.setimportance(0);
-		newMainlist4.setperiod("");
-		newMainlist4.setnotificaton("0");
-		MainlistDao.save(newMainlist4);
+		Addlist newAddlist2 = new Addlist();
+		newAddlist2.setMainlist(newMainlist1);
+		newAddlist2.setAddName("Домашка");
+		newAddlist2.setAddDescription("Не делаем :С");
+		AddlistDao.save(newAddlist2);
 
-		Addlist newAddlist4 = new Addlist();
-		newAddlist4.setadd_name("borsh");
-		newAddlist4.setadd_description("");
-		AddlistDao.save(newAddlist4);
+		Mainlist newMainlist2 = new Mainlist();
+		newMainlist2.setName("Кино");
+		newMainlist2.setDateTime(LocalDateTime.parse("2017-04-15T9:00:00"));
+		newMainlist2.setDescription("Идём в кино");
+		newMainlist2.setImportance(true);
+		newMainlist2.setPeriod(10l);   //дописываем l, потому что тип long
+		newMainlist2.setNotification(true);
+		MainlistDao.save(newMainlist2);
 
-		Mainlist newMainlist5 = new Mainlist();
-		newMainlist5.setname("cinema");
-		//
-		newMainlist5.setdescription("");
-		newMainlist5.setimportance(0);
-		newMainlist5.setperiod();
-		newMainlist5.setnotificaton("0");
-		MainlistDao.save(newMainlist5);
+		Addlist newAddlist3 = new Addlist();
+		newAddlist3.setMainlist(newMainlist2);
+		newAddlist3.setAddName("Купить билеты онлайн");
+		newAddlist3.setAddDescription("На хороший ряд");
+		AddlistDao.save(newAddlist3);
 
-*/
 
 		
-		System.out.println("Mainlist::" + newMainlist1.toString());
+	/*	System.out.println("Mainlist::" + newMainlist1.toString());
 		
 		List<Mainlist> MainlistList = MainlistDao.findAll();
 		
@@ -77,7 +97,7 @@ public class SpringHibernateMain {
 		}
 
 		context.close();
-		
+		*/
 	}
 
 }
