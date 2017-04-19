@@ -15,7 +15,7 @@ public class DbTableCreator {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                            "postgres", "12gjldbujd");
+                            "sniak", "matricaria");
 
             stmt = c.createStatement();
 

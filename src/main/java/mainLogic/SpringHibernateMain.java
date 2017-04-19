@@ -3,6 +3,7 @@ package mainLogic;
 
 import dal.AddlistDao;
 import dal.MainlistDao;
+import dal.impl.MainListDaoImpl;
 import dao.Addlist;
 import dao.Mainlist;
 import org.joda.time.LocalDateTime;
@@ -13,44 +14,26 @@ import java.util.List;
 import static dal.MainlistDao.*;
 
 public class SpringHibernateMain {
-	/*
-	private static PostPageData findSinglePublication(
-			PostDao postDao,
-			UserDao userDao,
-			Long postId
-	) {
-		Post post = postDao.findById(postId);
 
 
-		PostPageData data = new PostPageData();
-
-		LocalDateTime dateTime = post.getDateTime();
-		data.setDateTime(dateTime);
-
-		Long userId = post.getUserId();
-		User user = userDao.findById(userId);
-		String userFullName = user.getFirstName() + " " + user.getLastName();
-		data.setUser(userFullName);
-
-		String title = post.getTitle();
-		data.setTitle(title);
-
-		String publicationText = post.getPublication();
-		data.setPublication(publicationText);
-
-
-		return data;
-	}
-	*/
-
+	//
 	public static void main(String[] args) {
 
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring4.xml");
 		
-		MainlistDao MainlistDao = context.getBean(MainlistDao.class);
+		MainlistDao MainlistDao =context.getBean(MainlistDao.class);
 		AddlistDao AddlistDao = context.getBean(AddlistDao.class);
 
-		Mainlist newMainlist1 = new Mainlist();
+
+
+		//Mainlist newMainlist = new Mainlist();
+		//Addlist newAddlist = new Addlist();
+
+
+		MainlistDao.deleteTheMainList(1);
+
+
+		/*Mainlist newMainlist1 = new Mainlist();
 		newMainlist1.setName("Учёба");
 		newMainlist1.setDateTime(LocalDateTime.parse("2017-04-10T10:11:30"));
 		newMainlist1.setDescription("Учимся С:");
@@ -86,7 +69,7 @@ public class SpringHibernateMain {
 		newAddlist3.setAddDescription("На хороший ряд");
 		AddlistDao.save(newAddlist3);
 
-
+*/
 		
 	/*	System.out.println("Mainlist::" + newMainlist1.toString());
 		

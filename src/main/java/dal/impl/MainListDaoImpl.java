@@ -34,16 +34,30 @@ public class MainListDaoImpl implements MainlistDao {
         session.close();
     }
 
-    @SuppressWarnings("unchecked")
-    public List<Mainlist> findAll() {
+    public void deleteTheMainList(int idCase) {
         Session session = this.sessionFactory.openSession();
-        List<Mainlist> personList = session.createQuery("from Mainlist").list();
+        Transaction tx = session.beginTransaction();
+        String sql;
+        sql =" DELETE FROM JAVA_TASK.MAINLIST WHERE 'main_id' =" + idCase ;
+        session.createQuery(sql);
+        sql = " DELETE FROM JAVA_TASK.MAINLIST WHERE 'id' =" + idCase ;
+        session.createQuery(sql);
+        tx.commit();
         session.close();
-        return personList;
     }
-    /*
+
+
+  /*@SuppressWarnings("unchecked")
+  public List<Mainlist> findAll() {
+     Session session = this.sessionFactory.openSession();
+      List<Mainlist> personList = session.createQuery("from Mainlist").list();
+      session.close();
+      return personList;
+
+  }*/
+
     //ФУНЦКИЯ ВЫВОДИТ ВСЕ ЗАДАНИЯ, КОТОРЫЕ ВАЖНЫЕ Importance = TRUE
-    public Mainlist findByImportance(Long Importance) {
+    /*public Mainlist findByImportance(Long Importance) {
         JdbcTemplate jdbc = new JdbcTemplate(dataSource);
 
         String sql = ""
