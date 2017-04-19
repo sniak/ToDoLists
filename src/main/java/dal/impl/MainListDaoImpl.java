@@ -38,9 +38,9 @@ public class MainListDaoImpl implements MainlistDao {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         String sql;
-        sql =" DELETE FROM JAVA_TASK.MAINLIST WHERE 'main_id' =" + idCase ;
-        session.createQuery(sql);
         sql = " DELETE FROM JAVA_TASK.MAINLIST WHERE 'id' =" + idCase ;
+        session.createQuery(sql);
+        sql =" DELETE FROM JAVA_TASK.ADDLIST WHERE 'main_id' =" + idCase ;
         session.createQuery(sql);
         tx.commit();
         session.close();

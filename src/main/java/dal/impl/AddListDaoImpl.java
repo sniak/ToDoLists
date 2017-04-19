@@ -25,4 +25,18 @@ public class AddListDaoImpl implements AddlistDao {
         tx.commit();
         session.close();
     }
+
+    public void deleteTheAddList(int idCase) {
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        String sql;
+        sql =" DELETE FROM JAVA_TASK.ADDLIST WHERE 'id' =" + idCase ;
+        session.createQuery(sql);
+        tx.commit();
+        session.close();
+    }
+
+
+
+
 }
