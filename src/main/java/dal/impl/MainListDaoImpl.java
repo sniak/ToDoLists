@@ -1,24 +1,36 @@
 package dal.impl;
 
 import dal.MainlistDao;
-import dal.MainlistDao;
+
+import dal.mapper.AddlistRowMapper;
+import dal.mapper.MainlistRowMapper;
+import dao.Addlist;
 import dao.Mainlist;
-import dao.Mainlist;
-//import dal.mapper.MainlistRowMapper;
+import dataBase.DbQueryWork;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import sun.applet.Main;
+import javax.sql.DataSource;
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
-import java.util.List;
 
 @Repository
 public class MainListDaoImpl implements MainlistDao {
 
     @Autowired
     private SessionFactory sessionFactory;
+
+    @Autowired
+    private DataSource dataSource;
+
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -27,50 +39,25 @@ public class MainListDaoImpl implements MainlistDao {
     public void save(Mainlist entity) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-
         session.persist(entity);
-
-        tx.commit();
-        session.close();
-    }
-
-    public void deleteTheMainList(int idCase) {
-        Session session = this.sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
-        String sql;
-        sql = " DELETE FROM JAVA_TASK.MAINLIST WHERE 'id' =" + idCase ;
-        session.createQuery(sql);
-        sql =" DELETE FROM JAVA_TASK.ADDLIST WHERE 'main_id' =" + idCase ;
-        session.createQuery(sql);
         tx.commit();
         session.close();
     }
 
 
-  /*@SuppressWarnings("unchecked")
-  public List<Mainlist> findAll() {
-     Session session = this.sessionFactory.openSession();
-      List<Mainlist> personList = session.createQuery("from Mainlist").list();
-      session.close();
-      return personList;
 
-  }*/
-
-    //ФУНЦКИЯ ВЫВОДИТ ВСЕ ЗАДАНИЯ, КОТОРЫЕ ВАЖНЫЕ Importance = TRUE
-    /*public Mainlist findByImportance(Long Importance) {
-        JdbcTemplate jdbc = new JdbcTemplate(dataSource);
-
-        String sql = ""
-                + " SELECT * FROM JAVA_TASK.MAINLIST "
-                + " WHERE Importance = TRUE ";
-
-        Mainlist mainlist = (Mainlist) jdbc.queryForObject(
-                sql,
-                new Object[] { Importance },
-                new MainlistRowMapper(Mainlist.class)
-        );
-
-        return mainlist;
+    //Удаление записи из главной таблицы по введенному индексу и относящиеся к нему записи из дополнительной
+    public void deleteTheMainList(int idCase) { //КОСТЫЛИИИИИИИИИИ
+        DbQueryWork  dbQueryWork = new DbQueryWork();
+        String sql = "DElETE FROM addlist WHERE addlist.main_id = " + idCase + ";";
+        dbQueryWork.nonReturnQuery(sql);
+        sql = "DElETE FROM mainlist WHERE main.id = " + idCase + ";";
     }
-    */
+
+
+
+
+
+
+
 }

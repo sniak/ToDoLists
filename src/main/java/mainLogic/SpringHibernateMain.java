@@ -21,16 +21,16 @@ public class SpringHibernateMain {
 
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring4.xml");
 		
-		MainlistDao MainlistDao =context.getBean(MainlistDao.class);
-		AddlistDao AddlistDao = context.getBean(AddlistDao.class);
+		MainlistDao mainlistDao =context.getBean(MainlistDao.class);
+		AddlistDao addlistDao = context.getBean(AddlistDao.class);
 
 
 
 		//Mainlist newMainlist = new Mainlist();
 		//Addlist newAddlist = new Addlist();
 
-
-		MainlistDao.deleteTheMainList(1);
+//пытаюсь удалить 1 элемент но ничего не получается
+		mainlistDao.deleteTheMainList(1);
 
 
 		/*Mainlist newMainlist1 = new Mainlist();
@@ -71,16 +71,7 @@ public class SpringHibernateMain {
 
 */
 		
-	/*	System.out.println("Mainlist::" + newMainlist1.toString());
-		
-		List<Mainlist> MainlistList = MainlistDao.findAll();
-		
-		for(Mainlist mainlist : MainlistList){
-			System.out.println("Mainlist List::" + mainlist);
-		}
 
-		context.close();
-		*/
 	}
 
 }
