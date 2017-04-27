@@ -12,11 +12,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import javax.sql.DataSource;
+import java.util.List;
+
 @Repository
 public class AddListDaoImpl implements AddlistDao {
 
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private DataSource dataSource;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -39,24 +44,21 @@ public class AddListDaoImpl implements AddlistDao {
     }
 
 
-   /* public List<Post> findByUserId(Long userId) {
+    public List<Addlist> findByMainlistId(Long mainlistId) {
         JdbcTemplate jdbc = new JdbcTemplate(dataSource);
 
         String sql = ""
-                + " SELECT * FROM JAVA_TASK.POST "
-                + " WHERE POST.USER_ID = " + userId + " "
-                + " ORDER BY POST.DATE_TIME DESC "
-                + " FETCH FIRST 50 ROWS ONLY ";
-
-        List<Post> posts  = jdbc.query(
+                + " SELECT * FROM JAVA_TASK.ADDLIST "
+                + " WHERE ADDLIST.MAIN_ID = " + mainlistId + "; ";
+        List<Addlist> addlists  = jdbc.query(
                 sql,
-                new PostRowMapper(Post.class)
+                new AddlistRowMapper(Addlist.class)
         );
 
-        return posts;
+        return addlists;
     }
 
-*/
+
 
 
 }

@@ -30,7 +30,8 @@ public class SpringHibernateMain {
 		//Addlist newAddlist = new Addlist();
 
 //пытаюсь удалить 1 элемент но ничего не получается
-		mainlistDao.deleteTheMainList(1);
+		//mainlistDao.deleteTheMainList(1);
+
 
 
 		/*Mainlist newMainlist1 = new Mainlist();
