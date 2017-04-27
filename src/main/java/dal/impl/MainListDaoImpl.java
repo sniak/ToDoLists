@@ -36,7 +36,7 @@ public class MainListDaoImpl implements MainlistDao {
         this.sessionFactory = sessionFactory;
     }
 
-    public void save(Mainlist entity) {
+     public void save(Mainlist entity) {
         Session session = this.sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         session.persist(entity);
@@ -54,6 +54,8 @@ public class MainListDaoImpl implements MainlistDao {
         sql = "DElETE FROM java_task.mainlist WHERE java_task.mainlist.id = " + idCase + ";";
         dbQueryWork.nonReturnQuery(sql);
     }
+
+
 
 
 

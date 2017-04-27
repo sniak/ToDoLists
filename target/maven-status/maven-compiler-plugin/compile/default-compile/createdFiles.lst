@@ -1,0 +1,12 @@
+dal\mapper\AddlistRowMapper.class
+dataBase\DbQueryWork.class
+dal\mapper\MainlistRowMapper.class
+dataBase\DbTableCreator.class
+mainLogic\SpringHibernateMain.class
+dao\Mainlist.class
+dal\impl\AddListDaoImpl.class
+dataBase\DbInsert.class
+dal\AddlistDao.class
+dal\impl\MainListDaoImpl.class
+dao\Addlist.class
+dal\MainlistDao.class
