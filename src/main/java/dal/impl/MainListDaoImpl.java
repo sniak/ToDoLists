@@ -49,9 +49,10 @@ public class MainListDaoImpl implements MainlistDao {
     //Удаление записи из главной таблицы по введенному индексу и относящиеся к нему записи из дополнительной
     public void deleteTheMainList(int idCase) { //КОСТЫЛИИИИИИИИИИ
         DbQueryWork  dbQueryWork = new DbQueryWork();
-        String sql = "DElETE FROM addlist WHERE addlist.main_id = " + idCase + ";";
+        String sql = "DElETE FROM java_task.addlist WHERE addlist.main_id = " + idCase + ";";
         dbQueryWork.nonReturnQuery(sql);
-        sql = "DElETE FROM mainlist WHERE main.id = " + idCase + ";";
+        sql = "DElETE FROM java_task.mainlist WHERE java_task.mainlist.id = " + idCase + ";";
+        dbQueryWork.nonReturnQuery(sql);
     }
 
 

@@ -35,7 +35,7 @@ public class AddListDaoImpl implements AddlistDao {
     //удаление записи из малой таблицы
     public void deleteTheAddList(int idCase) {
         DbQueryWork dbQueryWork = new DbQueryWork();
-        String sql = "DElETE FROM addlist WHERE addlist.main_id = " + idCase + ";";
+        String sql = "DElETE FROM java_task.addlist WHERE addlist.main_id = " + idCase + ";";
     }
 
 
