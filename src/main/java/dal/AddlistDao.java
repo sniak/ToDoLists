@@ -7,5 +7,6 @@ import java.util.List;
 public interface AddlistDao {
     void save(Addlist entity);
     public void deleteTheAddList(int idCase);
-  //  public List<Addlist> findByMainlistId(Long mainlistId);
+    public void update(Addlist entity);
+     public List<Addlist> findByMainlistId(Long mainlistId);
 }

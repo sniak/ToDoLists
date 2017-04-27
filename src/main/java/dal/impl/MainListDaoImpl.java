@@ -45,6 +45,15 @@ public class MainListDaoImpl implements MainlistDao {
     }
 
 
+    public void update(Mainlist entity) {
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.update(entity);
+        tx.commit();
+        session.close();
+    }
+
+
 
     //Удаление записи из главной таблицы по введенному индексу и относящиеся к нему записи из дополнительной
     public void deleteTheMainList(int idCase) { //КОСТЫЛИИИИИИИИИИ

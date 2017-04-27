@@ -35,6 +35,14 @@ public class AddListDaoImpl implements AddlistDao {
         session.close();
     }
 
+    public void update(Addlist entity) {
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.update(entity);
+        tx.commit();
+        session.close();
+    }
+
 
 
     //удаление записи из малой таблицы
