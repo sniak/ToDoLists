@@ -1,6 +1,6 @@
 package controller;
 
-import Service.MainListService;
+import service.MainListService;
 import dao.Mainlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 public class MainlistController {
 
-   // @Autowired
+    @Autowired
     private MainListService mainListService;
 
     @RequestMapping("/")

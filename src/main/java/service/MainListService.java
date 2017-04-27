@@ -1,4 +1,4 @@
-package Service;
+package service;
 
 import dal.MainlistDao;
 import dao.Mainlist;
@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class MainListService {
     @Autowired
-    MainlistDao mainlistDao;
+    private MainlistDao mainlistDao;
     public List<Mainlist> findAll() {
         List<Mainlist> list = mainlistDao.findAll();
         return list;

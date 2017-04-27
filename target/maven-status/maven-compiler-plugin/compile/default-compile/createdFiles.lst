@@ -1,5 +1,7 @@
 dal\mapper\AddlistRowMapper.class
 dataBase\DbQueryWork.class
+Service\AddListService.class
+Service\MainListService.class
 dal\mapper\MainlistRowMapper.class
 dataBase\DbTableCreator.class
 mainLogic\SpringHibernateMain.class

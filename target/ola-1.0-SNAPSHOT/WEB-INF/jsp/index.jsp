@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+
 <html>
 
 <head>
@@ -9,7 +9,7 @@
 <h2>ToDoLists.</h2>
 <ul>
     <li>
-        <a href="/mainList">view all users </a>
+        <a href="/mainList">ыфыфввфывфывфыв </a>
     </li>
 
 </ul>
