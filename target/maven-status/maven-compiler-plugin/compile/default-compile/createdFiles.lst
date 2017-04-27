@@ -6,6 +6,7 @@ mainLogic\SpringHibernateMain.class
 dao\Mainlist.class
 dal\impl\AddListDaoImpl.class
 dataBase\DbInsert.class
+controller\MainlistController.class
 dal\AddlistDao.class
 dal\impl\MainListDaoImpl.class
 dao\Addlist.class
