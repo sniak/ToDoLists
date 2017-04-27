@@ -20,6 +20,7 @@ import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.List;
 
 
 @Repository
@@ -62,6 +63,15 @@ public class MainListDaoImpl implements MainlistDao {
         dbQueryWork.nonReturnQuery(sql);
         sql = "DElETE FROM java_task.mainlist WHERE java_task.mainlist.id = " + idCase + ";";
         dbQueryWork.nonReturnQuery(sql);
+    }
+
+
+    @SuppressWarnings("unchecked")
+    public List<Mainlist> findAll() {
+        Session session = this.sessionFactory.openSession();
+        List<Mainlist> mainlists = session.createQuery("from mainList").list();
+        session.close();
+        return mainlists;
     }
 
 

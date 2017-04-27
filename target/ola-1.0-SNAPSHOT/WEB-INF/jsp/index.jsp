@@ -1,4 +1,4 @@
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ page contentType="text/html;charset=utf-8" %>
 <html>
 
 <head>
@@ -6,7 +6,19 @@
 </head>
 
 <body>
-<h2>вфывфывфыв.</h2>
+<h2>ToDoLists.</h2>
+<ul>
+    <li>
+        <a href="/mainList">view all users </a>
+    </li>
+
+</ul>
+
+
+
+
+</body>
+
 
 </body>
 

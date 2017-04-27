@@ -1,4 +1,4 @@
-
+<%@ page contentType="text/html;charset=utf-8" %>
 <html>
 
 <head>
@@ -6,7 +6,19 @@
 </head>
 
 <body>
-<h2>вфывфывфыв.</h2>
+<h2>ToDoLists.</h2>
+<ul>
+    <li>
+        <a href="/mainList">view all MainList </a>
+    </li>
+
+</ul>
+
+
+
+
+</body>
+
 
 </body>
 
