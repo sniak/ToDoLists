@@ -4,22 +4,15 @@ import dal.MainlistDao;
 
 import dal.mapper.AddlistRowMapper;
 import dal.mapper.MainlistRowMapper;
-import dao.Addlist;
 import dao.Mainlist;
-import dataBase.DbQueryWork;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import sun.applet.Main;
+
 import javax.sql.DataSource;
-import java.sql.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 import java.util.List;
 
 
@@ -58,21 +51,42 @@ public class MainListDaoImpl implements MainlistDao {
 
     //Удаление записи из главной таблицы по введенному индексу и относящиеся к нему записи из дополнительной
     public void deleteTheMainList(int idCase) { //КОСТЫЛИИИИИИИИИИ
-        DbQueryWork  dbQueryWork = new DbQueryWork();
+        JdbcTemplate jdbc = new JdbcTemplate(dataSource);
         String sql = "DElETE FROM java_task.addlist WHERE addlist.main_id = " + idCase + ";";
-        dbQueryWork.nonReturnQuery(sql);
+        jdbc.execute(sql);
         sql = "DElETE FROM java_task.mainlist WHERE java_task.mainlist.id = " + idCase + ";";
-        dbQueryWork.nonReturnQuery(sql);
+        jdbc.execute(sql);
     }
 
 
-    @SuppressWarnings("unchecked")
+
     public List<Mainlist> findAll() {
-        Session session = this.sessionFactory.openSession();
-        List<Mainlist> mainlists = session.createQuery("from mainList").list();
-        session.close();
-        return mainlists;
+        JdbcTemplate jdbc = new JdbcTemplate(dataSource);
+        String sql = "SELECT * FROM java_task.mainlist;";
+        List<Mainlist> mainlist  = jdbc.query(
+                sql,
+                new MainlistRowMapper(Mainlist.class)
+        );
+        return mainlist;
     }
+
+
+    public List<Mainlist> findImportance(){
+        JdbcTemplate jdbc = new JdbcTemplate(dataSource);
+        String sql ="SELECT * FROM java_task.mainlist WHERE mainlist.importance = TRUE;";
+        List<Mainlist> mainlist  = jdbc.query(
+                sql,
+                new MainlistRowMapper(Mainlist.class)
+        );
+        return mainlist ;
+    }
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,8 @@
 
     <context:component-scan base-package="dal"/>
     <context:component-scan base-package="dao"/>
-    <context:component-scan base-package="Service"/>
+    <context:component-scan base-package="controller.service"/>
+    <context:component-scan base-package="controller"/>
 
     <context:annotation-config/>
 

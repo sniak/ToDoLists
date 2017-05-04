@@ -1,6 +1,6 @@
 package controller;
 
-import service.MainListService;
+import controller.service.MainListService;
 import dao.Mainlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,33 +22,20 @@ public class MainlistController {
 
     @RequestMapping("/")
     public ModelAndView index() {
-        String message = "Message from public class UserController";
+        String message = "ДОБРО ПОЖАЛОВАТЬ";
         return new ModelAndView("index", "message", message);
     }
 
 
-      @RequestMapping(value = "/mainList", method = RequestMethod.GET)
-  public String showAllUsers(ModelMap model) {
+     @RequestMapping(value = "/mainlist", method = RequestMethod.GET)
+     public String showAllToDo(ModelMap model) {
 
-        List<Mainlist> mainlists = mainListService.findAll();//сделать
-        model.addAttribute("MainToDo", mainlists);
+         List<Mainlist> mainlist = mainListService.findAll();//сделать
+         model.addAttribute("MainToDo", mainlist);
 
 
-      return "mainList/list";
-    }
+         return "mainlist";
+     }
 
 }
 
-
-/* public class UserController {
-
-        @Autowired
-        private UserService userService;
-
-
-        @RequestMapping("/")
-        public ModelAndView index() {
-            String message = "Message from public class UserController";
-            return new ModelAndView("index", "message", message);
-        }
-    }*/

@@ -1,5 +1,5 @@
 D:\java\ToDoLists\src\main\java\dataBase\DbInsert.java
-D:\java\ToDoLists\src\main\java\Service\AddListService.java
+D:\java\ToDoLists\src\main\java\service\AddListService.java
 D:\java\ToDoLists\src\main\java\dal\MainlistDao.java
 D:\java\ToDoLists\src\main\java\dal\AddlistDao.java
 D:\java\ToDoLists\src\main\java\mainLogic\SpringHibernateMain.java
@@ -8,8 +8,7 @@ D:\java\ToDoLists\src\main\java\dal\mapper\AddlistRowMapper.java
 D:\java\ToDoLists\src\main\java\dao\Mainlist.java
 D:\java\ToDoLists\src\main\java\dal\mapper\MainlistRowMapper.java
 D:\java\ToDoLists\src\main\java\dataBase\DbTableCreator.java
-D:\java\ToDoLists\src\main\java\dataBase\DbQueryWork.java
-D:\java\ToDoLists\src\main\java\Service\MainListService.java
+D:\java\ToDoLists\src\main\java\service\MainListService.java
 D:\java\ToDoLists\src\main\java\dal\impl\AddListDaoImpl.java
 D:\java\ToDoLists\src\main\java\dao\Addlist.java
 D:\java\ToDoLists\src\main\java\dal\impl\MainListDaoImpl.java

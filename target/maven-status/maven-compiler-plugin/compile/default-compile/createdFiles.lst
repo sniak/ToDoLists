@@ -1,7 +1,5 @@
 dal\mapper\AddlistRowMapper.class
-dataBase\DbQueryWork.class
-Service\AddListService.class
-Service\MainListService.class
+service\MainListService.class
 dal\mapper\MainlistRowMapper.class
 dataBase\DbTableCreator.class
 mainLogic\SpringHibernateMain.class
@@ -11,5 +9,6 @@ dataBase\DbInsert.class
 controller\MainlistController.class
 dal\AddlistDao.class
 dal\impl\MainListDaoImpl.class
+service\AddListService.class
 dao\Addlist.class
 dal\MainlistDao.class

@@ -1,14 +1,18 @@
-<%@ page session="false"%>
+<%--
+  Created by IntelliJ IDEA.
+  User: sniak
+  Date: 04.05.2017
+  Time: 1:52
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-<!DOCTYPE html>
-<html lang="ru">
-
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>MainList</title>
+</head>
 <body>
-
 <div class="container">
 
     <h1>All MainToDo</h1>
@@ -26,18 +30,18 @@
         </tr>
         </thead>
 
-        <c:forEach var="Mainlist" items="${Mainlist}">
+        <c:forEach var="mainlist" items="${MainToDo}">
             <tr>
-                <td>${Mainlist.id}</td>
-                <td>${Mainlist.name}</td>
-                <td>${Mainlist.data_time}</td>
-                <td>${Mainlist.description}</td>
-                <td>${Mainlist.period}</td>
-                <td>${Mainlist.norification}</td>
+                <td>${mainlist.mainId}</td>
+                <td>${mainlist.name}</td>
+                <td>${mainlist.dateTime}</td>
+                <td>${mainlist.descriotion}</td>
+                <td>${mainlist.period}</td>
+                <td>${mainlist.notification}</td>
                 <td>
-                    <spring:url value="/users/${Mainlist.id}"        var="userUrl" />
-                    <spring:url value="/users/${Mainlist.id}/delete" var="deleteUrl" />
-                    <spring:url value="/users/${Mainlist.id}/update" var="updateUrl" />
+                    <spring:url value="/jsp/${user.id}"        var="userUrl" />
+                    <spring:url value="/jsp/${user.id}/delete" var="deleteUrl" />
+                    <spring:url value="/jsp/${user.id}/update" var="updateUrl" />
 
                     <button class="btn btn-info"
                             onclick="location.href='${userUrl}'">Info</button>
@@ -51,6 +55,5 @@
     </table>
 
 </div>
-
-
 </body>
+</html>

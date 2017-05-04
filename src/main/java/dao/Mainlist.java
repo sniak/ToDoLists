@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import javax.persistence.*;
 ;
 import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
 import org.joda.time.LocalDateTime;
 import java.util.Date;
 import java.util.Set;
@@ -25,13 +26,15 @@ public Mainlist(){
 
 }
 
-    public Mainlist(Long mainId, String name,  String description, Boolean importance, Long period, Boolean notification) {
+    public Mainlist(Long mainId, String name, LocalDateTime dateTime,  String description, Boolean importance, Long period, Boolean notification) {
         this.mainId = mainId;
         this.name = name;
+        this.dateTime = dateTime;
         this.description = description;
         this.importance = importance;
         this.period = period;
         this.notification = notification;
+
     }
 
     @Id

@@ -8,4 +8,7 @@ public interface MainlistDao {
     public List<Mainlist> findAll();
     public void deleteTheMainList(int idCase);
     public void update(Mainlist entity);
+    public List<Mainlist> findImportance();
+
+
 }

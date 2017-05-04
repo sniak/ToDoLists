@@ -3,8 +3,6 @@ package dal.impl;
 import dal.AddlistDao;
 import dal.mapper.AddlistRowMapper;
 import dao.Addlist;
-import dao.Mainlist;
-import dataBase.DbQueryWork;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -47,8 +45,9 @@ public class AddListDaoImpl implements AddlistDao {
 
     //удаление записи из малой таблицы
     public void deleteTheAddList(int idCase) {
-        DbQueryWork dbQueryWork = new DbQueryWork();
+        JdbcTemplate jdbc = new JdbcTemplate(dataSource);
         String sql = "DElETE FROM java_task.addlist WHERE addlist.main_id = " + idCase + ";";
+        jdbc.execute(sql);
     }
 
 
@@ -62,7 +61,6 @@ public class AddListDaoImpl implements AddlistDao {
                 sql,
                 new AddlistRowMapper(Addlist.class)
         );
-
         return addlists;
     }
 

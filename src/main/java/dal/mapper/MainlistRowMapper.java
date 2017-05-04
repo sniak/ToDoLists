@@ -31,8 +31,9 @@ public class MainlistRowMapper extends BeanPropertyRowMapper {
         mainlist.setDateTime(localDateTime);
 
 
-        String dbValueDescriotion = rs.getString("Descriotion");
-        mainlist.setDescriotion(dbValueDescriotion);
+        String dbValueDescription = rs.getString("Description");
+        mainlist.setDescription(dbValueDescription);
+
 
         Boolean dbValueImportance = rs.getBoolean("Importance");
         mainlist.setImportance(dbValueImportance);
