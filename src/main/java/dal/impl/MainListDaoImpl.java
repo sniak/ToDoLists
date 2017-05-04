@@ -81,6 +81,13 @@ public class MainListDaoImpl implements MainlistDao {
         return mainlist ;
     }
 
+    public Mainlist findid(long id){
+        JdbcTemplate jdbc = new JdbcTemplate(dataSource);
+        String sql ="SELECT * FROM java_task.mainlist WHERE mainlist.id= ?;";
+        Mainlist mainlist  = (Mainlist) jdbc.queryForObject(sql, new Object[] {id}, new MainlistRowMapper(Mainlist.class));
+        return mainlist ;
+    }
+
 
 
 

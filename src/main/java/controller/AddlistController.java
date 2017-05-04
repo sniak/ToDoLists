@@ -7,9 +7,11 @@ import dao.Mainlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import sun.applet.Main;
 
 import java.util.List;
 
@@ -22,15 +24,20 @@ public class AddlistController {
         @Autowired
         private AddListService addListService;
 
-
-        @RequestMapping(value = "/addlist", method = RequestMethod.GET)
-        public String showAddToDo(ModelMap model) {
-
-            //List<Addlist> addlists = addListService.findByMainlistId()//сделать
-           // model.addAttribute("AddToDo", addlists);
+        @Autowired
+        private MainListService mainListService;
 
 
-            return "addlist";
+        @RequestMapping(value = "/jsp/{id}", method = RequestMethod.GET)
+        public String shoaddlistInfo(@PathVariable("id") long id, ModelMap model) {
+
+                Mainlist mainlist = mainListService.findid(id);
+                model.addAttribute("mainlist", mainlist);
+
+                List<Addlist> addlists = addListService.findByMainlistId(mainlist.getMainId());
+                model.addAttribute("AddToDo", addlists);
+
+                return "addlist";
         }
 
 

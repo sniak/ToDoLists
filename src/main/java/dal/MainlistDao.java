@@ -9,6 +9,7 @@ public interface MainlistDao {
     public void deleteTheMainList(int idCase);
     public void update(Mainlist entity);
     public List<Mainlist> findImportance();
+    public Mainlist findid(long id);
 
 
 }

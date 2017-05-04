@@ -9,14 +9,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>MainList</title>
-</head>
+<head><title>MainList</title></head>
 <body>
 <div class="container">
-
     <h1>All MainToDo</h1>
-
     <table class="table table-striped">
         <thead>
         <tr>
@@ -26,10 +22,8 @@
             <th>Description</th>
             <th>Period</th>
             <th>Notification</th>
-
         </tr>
         </thead>
-
         <c:forEach var="mainlist" items="${MainToDo}">
             <tr>
                 <td>${mainlist.mainId}</td>
@@ -39,10 +33,9 @@
                 <td>${mainlist.period}</td>
                 <td>${mainlist.notification}</td>
                 <td>
-                    <spring:url value="/jsp/${user.id}"        var="userUrl" />
-                    <spring:url value="/jsp/${user.id}/delete" var="deleteUrl" />
-                    <spring:url value="/jsp/${user.id}/update" var="updateUrl" />
-
+                    <spring:url value="/jsp/${mainlist.mainId}"        var="userUrl" />
+                    <spring:url value="/jsp/${mainlist.mainId}/delete" var="deleteUrl" />
+                    <spring:url value="/jsp/${mainlist.mainId}/update" var="updateUrl" />
                     <button class="btn btn-info"
                             onclick="location.href='${userUrl}'">Info</button>
                     <button class="btn btn-update"
@@ -53,7 +46,6 @@
             </tr>
         </c:forEach>
     </table>
-
 </div>
 </body>
 </html>

@@ -1,10 +1,13 @@
 package controller;
 
+import controller.service.AddListService;
 import controller.service.MainListService;
+import dao.Addlist;
 import dao.Mainlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +22,8 @@ public class MainlistController {
 
     @Autowired
     private MainListService mainListService;
+    @Autowired
+    private AddListService addListServicee;
 
     @RequestMapping("/")
     public ModelAndView index() {
@@ -36,6 +41,8 @@ public class MainlistController {
 
          return "mainlist";
      }
+
+
 
 }
 

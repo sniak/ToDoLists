@@ -4,6 +4,7 @@ import dal.MainlistDao;
 import dao.Mainlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.applet.Main;
 
 import java.util.List;
 
@@ -17,6 +18,11 @@ public class MainListService {
     public List<Mainlist> findAll() {
         List<Mainlist> list = mainlistDao.findAll();
         return list;
+    }
+
+    public Mainlist findid(long id) {
+        Mainlist mainlist = mainlistDao.findid(id);
+        return mainlist;
     }
 
 
