@@ -12,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class DbInsert {
 
-   /* public static void main(String[] args) {
+  /* public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring4.xml");
 
         MainlistDao mainlistDao =context.getBean(MainlistDao.class);

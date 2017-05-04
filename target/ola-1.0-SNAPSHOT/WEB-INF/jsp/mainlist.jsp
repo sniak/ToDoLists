@@ -41,7 +41,7 @@
                     <button class="btn btn-update"
                             onclick="location.href='${updateUrl}'">Update</button>
                     <button class="btn btn-delete"
-                            onclick="this.disabled=true;post('${deleteUrl}')">Delete</button>
+                            onclick="location.href='${deleteUrl}'">Delete</button>
                 </td>
             </tr>
         </c:forEach>

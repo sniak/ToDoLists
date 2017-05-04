@@ -32,6 +32,11 @@
                 <td>${addlist.addDescription}</td>
             </tr>
         </c:forEach>
+        <spring:url value="/mainlist"        var="mainlist" />
+        <button class="btn btn-info"
+                onclick="location.href='${mainlist}'">На главную</button>
+
+
     </table>
 </div>
 </body>

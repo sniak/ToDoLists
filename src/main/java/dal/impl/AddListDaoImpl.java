@@ -44,7 +44,7 @@ public class AddListDaoImpl implements AddlistDao {
 
 
     //удаление записи из малой таблицы
-    public void deleteTheAddList(int idCase) {
+    public void deleteTheAddList(long idCase) {
         JdbcTemplate jdbc = new JdbcTemplate(dataSource);
         String sql = "DElETE FROM java_task.addlist WHERE addlist.main_id = " + idCase + ";";
         jdbc.execute(sql);

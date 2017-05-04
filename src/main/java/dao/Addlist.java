@@ -19,12 +19,6 @@ public class Addlist {
 
     public Addlist() {
     }
-    public Addlist(Long addId, Mainlist mainlist, String addName, String addDescription) {
-        this.addId = addId;
-        this.mainlist = mainlist;
-        this.addName = addName;
-        this.addDescription = addDescription;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

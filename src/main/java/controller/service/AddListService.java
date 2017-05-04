@@ -20,6 +20,10 @@ public class AddListService {
         return list;
     }
 
+    public void deleteTheAddList(long idCase){
+        addlistDao.deleteTheAddList(idCase);
+    }
+
 
 
 

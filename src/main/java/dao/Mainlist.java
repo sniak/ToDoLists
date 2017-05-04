@@ -22,20 +22,8 @@ public class Mainlist {
     private Long period;
     private Boolean notification;
 
-public Mainlist(){
-
+public Mainlist() {
 }
-
-    public Mainlist(Long mainId, String name, LocalDateTime dateTime,  String description, Boolean importance, Long period, Boolean notification) {
-        this.mainId = mainId;
-        this.name = name;
-        this.dateTime = dateTime;
-        this.description = description;
-        this.importance = importance;
-        this.period = period;
-        this.notification = notification;
-
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -25,6 +25,15 @@ public class MainListService {
         return mainlist;
     }
 
+    public void deleteTheMainList(Long idCase){
+        mainlistDao.deleteTheMainList(idCase);
+
+    }
+
+    public void update(Mainlist entity){
+        mainlistDao.update(entity);
+    }
+
 
 
 }
